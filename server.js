@@ -12,9 +12,9 @@ app.use(cookieParser());
 
 
 var ping = function (req, res) {
-    console.log('ip', req.connection.remoteAddress);
-    console.log('headers', req.headers);
-    console.log('cookies', req.cookies);
+    //console.log('ip', req.connection.remoteAddress);
+    //console.log('headers', req.headers);
+    //console.log('cookies', req.cookies);
     res.json(getProxyType(req.headers, req.query, req.body, req.cookies));
 };
 
@@ -28,17 +28,16 @@ var port = process.env.OPENSHIFT_NODEJS_PORT || 9527;
 if (typeof ipaddress === "undefined") {
     //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
     //  allows us to run/test the app locally.
-    console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
+    //console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
     ipaddress = "127.0.0.1";
 }
 
 var terminator = function (sig) {
     if (typeof sig === "string") {
-        console.log('%s: Received %s - terminating sample app ...',
-            Date(Date.now()), sig);
+        //console.log('%s: Received %s - terminating sample app ...', Date(Date.now()), sig);
         process.exit(1);
     }
-    console.log('%s: Node server stopped.', Date(Date.now()));
+    //console.log('%s: Node server stopped.', Date(Date.now()));
 };
 
 //  Process on exit and signals.
