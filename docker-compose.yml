@@ -8,3 +8,4 @@ services:
     environment:
       OPENSHIFT_NODEJS_IP: "0.0.0.0"
       OPENSHIFT_NODEJS_PORT: "9527"
+    restart: always
